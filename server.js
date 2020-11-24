@@ -19,12 +19,13 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
 
         // Body parser
         app.use(bodyParser.urlencoded({ extended: true }))
+        app.use(express.static(__dirname + '/views'));
 
         // Handlers
         app.get('/', function (req, res) {
             const cursor = db.collection('reviews').find().toArray()
                 .then(results => {
-                    res.render('reviewpage.ejs', { reviews: results })
+                    res.render('index.html', { reviews: results })
                 })
                 .catch(error => console.error(error))
         })

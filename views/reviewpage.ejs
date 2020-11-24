@@ -2,34 +2,39 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" type="text/css">
     <title>Review Page</title>
   </head>
+
   <body>
     <h1>This is the review section for the game</h1>
     <form action="/reviews" , method="POST" )>
-      
       <input
-        type="text",
-        placeholder="username to be displayed",
+        type="text"
+        ,
+        placeholder="username to be displayed"
+        ,
         name="username"
       />
 
       <input
-        type="text",
-        placeholder="write your review here",
+        type="text"
+        ,
+        placeholder="write your review here"
+        ,
         name="review"
       />
 
       <button type="submit">Submit</button>
     </form>
-    <h2> Reviews </h2>
+    <h2>Reviews</h2>
     <ul class="reviews">
       <% for(var i = 0; i < reviews.length; i++) {%>
       <li class="review">
-        <span><%= reviews[i].name %></span>:
-        <span><%= reviews[i].content %></span>
+        <span><%= reviews[i].username %></span>:
+        <span><%= reviews[i].review %></span>
       </li>
-    <% } %>
+      <% } %>
     </ul>
   </body>
 </html>
