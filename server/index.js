@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 
-const MongoClient = require('mongodb');
 const mongoose = require('mongoose')
 
 const userController = require('./controllers/user')
+const gameController = require('./controllers/game')
 
 app.listen(3001, function () {
     console.log('listening on 3001')
@@ -25,6 +25,10 @@ db.once('open', () => console.log('successfully connect to database'))
 // api
 app.post('/login', userController.postLogin)
 app.post('/register', userController.postRegister)
+app.post('/games/all', gameController.listAll)
+app.post('/games/findGame', gameController.findTitle)
+
+
 
 
 
