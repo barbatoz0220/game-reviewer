@@ -1,41 +1,31 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const app = express();
-const MongoClient = require('mongodb');
+const bodyParser = require('body-parser');
 
-app.listen(3000, function () {
-    console.log('listening on 3000')
+const MongoClient = require('mongodb');
+const mongoose = require('mongoose')
+
+const userController = require('./controllers/user')
+
+app.listen(3001, function () {
+    console.log('listening on 3001')
 })
 
+// middleware
+app.use(bodyParser.json())
 
-MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Game-Reviewer?retryWrites=true&w=majority', { useUnifiedTopology: true })
-    .then(client => {
-        console.log('Connected to Database')
+const uri = 'mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Game-Reviewer?retryWrites=true&w=majority'
 
-        // Connect to database and its collection
-        const db = client.db('Game-Reviewer')
-        const reviewsCollection = db.collection('reviews')
-        app.set('view engine', 'ejs')
+// mongoose.connect(uri, options, callback)
+mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true})
+const db = mongoose.connection 
+db.on('error', console.error.bind(console, 'connection error'))
+db.once('open', () => console.log('successfully connect to database'))
 
-        // Body parser
-        app.use(bodyParser.urlencoded({ extended: true }))
+// api
+app.post('/login', userController.postLogin)
+app.post('/register', userController.postRegister)
 
-        // Handlers
-        app.get('/', function (req, res) {
-            const cursor = db.collection('reviews').find().toArray()
-                .then(results => {
-                    res.render('reviewpage.ejs', { reviews: results })
-                })
-                .catch(error => console.error(error))
-        })
 
-        // Posted reviews are inserted to collection
-        app.post('/reviews', function (req, res) {
-            reviewsCollection.insertOne(req.body)
-                .then(result => {
-                    res.redirect('/')
-                })
-                .catch(error => console.error(error))
-        })
-    })
-    .catch(error => console.error(error))
+
+
