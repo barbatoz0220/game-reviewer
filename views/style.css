@@ -1,5 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+html {
+  font-size: 10px;
+}
 body {
   padding: 0;
   margin: 0;
@@ -22,6 +25,16 @@ body {
   font-family: "Open Sans", sans-serif;
 }
 
+h1.frontpage {
+  font-family:  monospace;
+  font-size: 2em;
+  color: #ff9900;
+  border-style: solid;
+  border-radius: 1rem;
+  border-color: #000000;
+  background-color: #000000; 
+}
+
 .search {
   width: 100%;
   position: relative;
@@ -30,26 +43,27 @@ body {
 
 .searchTerm {
   width: 100%;
-  border: 3px solid #00b4cc;
+  border: 3px solid #000000;
   border-right: none;
   padding: 5px;
   height: 20px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9dbfaf;
+  color: #000000;
 }
 
 .searchTerm:focus {
-  color: #00b4cc;
+  color: #000000;
+  border: 1px solid #ff9900;
 }
 
 .searchButton {
   width: 40px;
   height: 36px;
-  border: 1px solid #00b4cc;
-  background: #00b4cc;
+  border: 1px solid #000000;
+  background: #000000;
   text-align: center;
-  color: #fff;
+  color: #ff9900;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
@@ -59,6 +73,7 @@ body {
 .wrap {
   width: 30%;
   position: absolute;
+  text-align: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
