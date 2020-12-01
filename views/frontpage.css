@@ -71,6 +71,11 @@ h1.logo {
 
 .container {
   font-size: 2em;
+  background: white;
+  border-radius: 5px;
+  margin-left: 25%;
+  margin-right: 25%;
+  width: 50%;
   display: grid;
   grid-template-columns: [first] auto [second] auto [third] auto;
 }
@@ -83,4 +88,6 @@ h1.logo {
   top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: grid;
+  flex-direction: column;
 }
