@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Review Page</title>
+    <link rel="stylesheet" href="review.css">
+  </head>
+  <body>
+    <a href="/"> Return Home</a>
+    <h1>Game #2: Pokemon Sword and Shield</h1>
+    <form action="/review2" , method="POST" )>
+      
+      </div>
+      <div class='username field'>
+        <h1>Username</h1>
+        <input
+          type="text",
+          placeholder="Enter the name you want to display",
+          name="username"
+        />
+      </div>
+      <div class='review field'>
+        <h1>Your game review</h1>
+        <textarea type="text",
+        name="review" rows="5" cols="100">
+        
+        </textarea>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <h2> Reviews </h2>
+    <ul class="review2">
+      <% for(var i = 0; i < reviews.length; i++) {%>
+        <li class="review2">
+          <span><%= reviews[i].username %></span>:
+          <span><%= reviews[i].review %></span>
+        </li>
+    <% } %>
+    </ul>
+  </body>
+</html>

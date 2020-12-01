@@ -1,0 +1,86 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+html {
+  font-size: 10px;
+}
+body {
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  height: 600px;
+  font-family: monospace;
+}
+canvas {
+  padding: 0;
+  margin: 0;
+}
+div.btnbg {
+  position: relative;
+  left: 0;
+  top: 0;
+}
+div.logo {
+  padding-left: 25%;
+  padding-right: 25%;
+  text-align: center;
+}
+h1.logo {
+  font-size: 2rem;
+  color: rgb(22,0,25);
+  border-style: solid;
+  border-radius: 1rem;
+  border-color: rgb(251,176,173, 0.5);
+  background-image: linear-gradient(to right, rgba(255, 103, 103, 0.76), #4837e31c); 
+}
+
+.searchBar {
+  width: 50%;
+  left: 25%;
+  align-items: center;
+  position: relative;
+  display: flex;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid linear-gradient(to right, rgba(255, 103, 103, 0.76), #4837e31c); ;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #000000;
+}
+
+.searchTerm:focus {
+  color: #000000;
+  border: 1px solid rgba(255, 103, 103, 0.76);
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #000000;
+  background: #000000;
+  text-align: center;
+  color:  rgba(255, 103, 103, 0.76);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.container {
+  font-size: 2em;
+  display: grid;
+  grid-template-columns: [first] auto [second] auto [third] auto;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap {
+  width: 100%;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
