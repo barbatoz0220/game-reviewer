@@ -1,3 +1,42 @@
+html {
+  font-family: monospace;
+}
 textarea {
-    resize: none;
+  resize: none;
+}
+
+body {
+  text-align: center;
+}
+
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  background-color: rgb(255, 103, 103);
+  width: 100%;
+  z-index: 12;
+  position: fixed;
+  font-size: 1.5em;
+}
+
+.logo {
+  float: left;
+  margin-left: 10%;
+}
+
+nav {
+  float: middle;
+}
+
+a {
+  color: white;
+  transition: 0.5s;
+  text-decoration: none;
+  margin: 50px;
+}
+
+a:hover {
+  color: rgb(0, 0, 0);
 }
