@@ -1,42 +1,213 @@
 html {
+  scroll-behavior: smooth;
   font-family: monospace;
+  background: rgb(24, 26, 27);
+  color: white;
 }
-textarea {
-  resize: none;
+::selection {
+  color: white;
+  background-color: #4837e3;
 }
 
-body {
+/* Scrollbar */
+::-webkit-scrollbar-track {
+  border: 5px solid rgb(22, 0, 25);
+  background-color: #4837e3;
+}
+::-webkit-scrollbar {
+  height: 5px;
+  width: 5px;
+  background-color: #f5f5f5;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(255, 103, 103);
+}
+
+/* Navigation Bar */
+.logo {
+  float: left;
+  margin-left: 10%;
+}
+nav {
+  float: right;
+}
+a {
+  color: white;
+  transition: 0.5s;
+  text-decoration: none;
   text-align: center;
+  margin: 25px;
 }
-
+a:hover {
+  color: rgb(255, 103, 103);
+  border-radius: 5px;
+  padding: 5px;
+  background: black;
+}
 header {
   top: 0;
   left: 0;
   right: 0;
   height: 25px;
-  background-color: rgb(255, 103, 103);
+  background-image: linear-gradient(to right, rgb(255, 103, 103), #4837e3);
   width: 100%;
   z-index: 12;
   position: fixed;
   font-size: 1.5em;
 }
 
-.logo {
-  float: left;
-  margin-left: 10%;
+/* Game Descriptions */
+h1.title {
+  transition: 1.5s;
+  border-radius: 5px;
+  padding: 5px;
+  background: black;
+}
+h1,
+h2,
+p {
+  text-align: center;
+}
+h1 {
+  color: rgb(255, 103, 103);
+  font-size: 25px;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 0.5s ease;
+  margin-top: 100px;
+}
+h2 {
+  color: #4837e3;
+}
+.content > blockquote {
+  padding: 25px;
+  border-radius: 5px;
+  text-align: justify;
 }
 
-nav {
-  float: middle;
+/* Review Form */
+.username > input {
+  text-align: center;
 }
-
-a {
+textarea,
+.username > input {
+  font-family: monospace;
+  resize: none;
+  outline: none;
   color: white;
-  transition: 0.5s;
-  text-decoration: none;
-  margin: 50px;
+  background: rgba(22, 0, 25, 0.288);
+  border-radius: 5px;
+  caret-color: rgb(255, 103, 103);
+  box-shadow: 5px 5px #4837e3;
+}
+div.username,
+div.review {
+  text-align: center;
+}
+::placeholder {
+  color: white;
+  border-radius: 5px;
+  font-family: monospace;
+  text-align: center;
 }
 
-a:hover {
-  color: rgb(0, 0, 0);
+/* Submit Button */
+button {
+  color: white;
+  background: rgb(255, 103, 103);
+  text-decoration: inherit;
+  font-family: monospace;
+  margin: 25px;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+}
+.border-gradient-purple {
+  box-shadow: 2px 2px #4837e3;
+  transition: 1.5s;
+}
+.border-gradient-purple:hover {
+  color: rgb(255, 103, 103);
+  background: #4837e3;
+  box-shadow: 5px 5px rgb(255, 103, 103);
+  cursor: pointer;
+}
+
+/* Image Slider */
+#library {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.slider {
+  position: relative;
+  width: 60%;
+  overflow: hidden;
+}
+.images {
+  display: flex;
+  width: 100%;
+  border: solid #4837e3 3px;
+}
+.images img {
+  height: 500px;
+  width: 100%;
+  transition: all 0.15s ease;
+}
+.images input {
+  display: none;
+}
+.dots {
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+.dots label {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: solid #4837e3 3px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  margin: 5px;
+}
+.dots label:hover {
+  background: rgb(255, 103, 103);
+}
+
+#img1:checked ~ .m1 {
+  margin-left: 0%;
+}
+#img1:checked ~ .m2 {
+  margin-left: -100%;
+}
+#img2:checked ~ .m3 {
+  margin-left: -200%;
+}
+#img3:checked ~ .m4 {
+  margin-left: -300%;
+}
+#img4:checked ~ .m5 {
+  margin-left: -400%;
+}
+#img5:checked ~ .m6 {
+  margin-left: -500%;
+}
+#img6:checked ~ .m6 {
+  margin-left: -600%;
+}
+
+/* Reviews */
+section#posts {
+  text-align: justify;
+  
+}
+li {
+  list-style: none;
+  display: flex;
+  margin: 10px;
+  border: 3px solid rgba(37, 33, 255, 0.274);
+}
+.comment-name {
+  background-image: linear-gradient(to right, rgba(255, 103, 103, 0.452), #4837e35e);
+  box-shadow: 5px 5px #4837e3;
 }

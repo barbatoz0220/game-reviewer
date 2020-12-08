@@ -29,7 +29,6 @@ h1.logo {
   color: rgb(22, 0, 25);
   border-style: solid;
   border-radius: 1rem;
-  border-color: rgb(251, 176, 173, 0.5);
   background-image: linear-gradient(
     to right,
     rgba(255, 103, 103, 0.76),
@@ -74,7 +73,7 @@ h1.logo {
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: 0.5s ease;
+  transition: 1s ease;
   text-decoration: none;
   background-image: linear-gradient(
     to right,
@@ -86,7 +85,6 @@ h1.logo {
 .overlay:hover {
   color: white;
   font-size: 2em;
-  background-color: #4837e31c;
   border-radius: 5px;
 }
 /*Resize the wrap to see the search bar change!*/
