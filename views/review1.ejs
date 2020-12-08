@@ -243,7 +243,7 @@
     <section id="posts">
       <h1>Reviews</h1>
       <ul class="review1">
-        <% for(var i = 0; i < reviews.length; i++) {%>
+        <% for(var i = reviews.length - 1; i >= 0; i--) {%>
         <li class="review1">
           <div class="comment-name-box">
             <span class="comment-name"><%= reviews[i].username %></span> 

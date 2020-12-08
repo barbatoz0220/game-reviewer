@@ -137,6 +137,7 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 .slider {
   position: relative;
@@ -145,7 +146,7 @@ button {
 }
 .images {
   display: flex;
-  width: 100%;
+  size: 100% 100%;
   border: solid #4837e3 3px;
 }
 .images img {
@@ -172,6 +173,10 @@ button {
 }
 .dots label:hover {
   background: rgb(255, 103, 103);
+}
+
+.dots label:active {
+  background: #fff;
 }
 
 #img1:checked ~ .m1 {
