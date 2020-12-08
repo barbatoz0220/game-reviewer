@@ -31,7 +31,7 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
 
         // Game Review 1
         app.get('/review1', function (req, res) {
-            const reviews = db.collection('review1').find().toArray()
+            db.collection('review1').find().toArray()
                 .then(results => {
                     res.render('review1.ejs', { reviews: results })
                 })
@@ -47,7 +47,7 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
 
         // Game Review 2
         app.get('/review2', function (req, res) {
-            const cursor = db.collection('review2').find().toArray()
+            db.collection('review2').find().toArray()
                 .then(results => {
                     res.render('review2.ejs', { reviews: results })
                 })
@@ -63,7 +63,7 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
 
         // Game Review 3
         app.get('/review3', function (req, res) {
-            const cursor = db.collection('reviews').find().toArray()
+            db.collection('reviews').find().toArray()
                 .then(results => {
                     res.render('review3.ejs', { reviews: results })
                 })

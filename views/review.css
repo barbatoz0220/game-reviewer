@@ -80,8 +80,12 @@ h2 {
   color: #4837e3;
 }
 .content > blockquote {
-  padding: 25px;
+  padding-bottom: 25px;
   border-radius: 5px;
+  text-align: justify;
+}
+
+.content > blockquote > p {
   text-align: justify;
 }
 
@@ -211,10 +215,15 @@ section#posts {
 li {
   list-style: none;
   display: flex;
+  flex-direction: column;
+  padding: 25px;
   margin: 10px;
   border: 3px solid rgba(37, 33, 255, 0.274);
 }
 .comment-name {
   background-image: linear-gradient(to right, rgba(255, 103, 103, 0.452), #4837e35e);
   box-shadow: 5px 5px #4837e3;
+}
+pre {
+  white-space: pre-wrap;
 }
