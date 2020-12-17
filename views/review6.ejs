@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSGO Review</title>
+    <link rel="stylesheet" href="review.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+      integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <section class="navigation">
+      <header>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="/">GameReviewer<i class="fas fa-gamepad"></i></a>
+          </div>
+          <nav>
+            <a href="#story">Story</a>
+            <a href="#gameplay">Gameplay</a>
+            <a href="#library">Image Library</a>
+            <a href="#review">Review</a>
+            <a href="#posts">Previous Posts</a>
+          </nav>
+        </div>
+      </header>
+    </section>
+
+    <section
+      class="banner"
+      style="
+        background-image: url(images/banners/csgo_wallpaper.png);
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 35em;
+      "
+    >
+      <h1 class="title">
+        <a href="https://blog.counter-strike.net/" target="_blank"
+          >Counter Strike: Global Offensive</a
+        >
+      </h1>
+    </section>
+
+    <section class="descriptions">
+      <div class="content" id="story">
+        <h1>Story</h1>
+        <h2>Settings</h2>
+        <blockquote>
+          <p>
+            Counter-Strike (CS) is a series of multiplayer first-person shooter
+            video games in which teams of terrorists battle to perpetrate an act
+            of terror (bombing, hostage-taking, assassination) while
+            counter-terrorists try to prevent it (bomb defusal, hostage rescue).
+            The series began on Windows in 1999 with the release of the first
+            game, Counter-Strike. It was initially released as a modification
+            ("mod") for Half-Life that was designed by Minh "Gooseman" Le and
+            Jess "Cliffe" Cliffe before the rights to the mod's intellectual
+            property were acquired by Valve, the developers of Half-Life, who
+            then turned Counter-Strike into a retail product. The original
+            Counter-Strike was followed by Counter-Strike: Condition Zero,
+            developed by Turtle Rock Studios and released in March 2004. A
+            previous version of Condition Zero that was developed by Ritual
+            Entertainment was released alongside it as Condition Zero: Deleted
+            Scenes. Eight months later, Valve released Counter-Strike: Source, a
+            remake of the original Counter-Strike and the first in the series to
+            run on Valve's newly created Source engine. The fourth game in the
+            main series, Counter-Strike: Global Offensive, was released by Valve
+            in 2012 for Windows, OS X, Xbox 360, and PlayStation 3. Hidden Path
+            Entertainment, who worked on Counter-Strike: Source post-release,
+            helped to develop the game alongside Valve. There have been several
+            third-party spin-off titles created for Asian markets over the
+            years. These include the Counter-Strike Online series,
+            Counter-Strike Neo, and Counter-Strike Nexon: Studio.
+          </p>
+        </blockquote>
+      </div>
+
+      <div class="content" id="gameplay">
+        <h1>Gameplay</h1>
+        <blockquote>
+          <p>
+            Counter-Strike is an objective-based, multiplayer first-person
+            shooter. Two opposing teams—the Terrorists and the Counter
+            Terrorists—compete in game modes to complete objectives, such as
+            securing a location to plant or defuse a bomb and rescuing or
+            guarding hostages. At the end of each round, players are rewarded
+            based on their individual performance with in-game currency to spend
+            on more powerful weapons in subsequent rounds. Winning rounds
+            results in more money than losing, and completing objectives such as
+            killing enemy players gives cash bonuses. Uncooperative actions,
+            such as killing teammates, results in a penalty.
+          </p>
+        </blockquote>
+      </div>
+    </section>
+
+    <h1>Image Library</h1>
+    <section id="library">
+      <div class="slider">
+        <div class="images">
+          <input type="radio" name="slide" id="img1" />
+          <input type="radio" name="slide" id="img2" />
+          <input type="radio" name="slide" id="img3" />
+          <input type="radio" name="slide" id="img4" />
+          <input type="radio" name="slide" id="img5" />
+          <input type="radio" name="slide" id="img6" />
+
+          <img src="images/cgg/csgo/0.jpg" class="m1" alt="img1" checked />
+          <img src="images/cgg/csgo/1.jpg" class="m2" alt="img2" />
+          <img src="images/cgg/csgo/2.jpg" class="m3" alt="img3" />
+          <img src="images/cgg/csgo/3.jpg" class="m4" alt="img4" />
+          <img src="images/cgg/csgo/4.jpg" class="m5" alt="img5" />
+          <img src="images/cgg/csgo/5.jpg" class="m6" alt="img6" />
+        </div>
+        <div class="dots">
+          <label for="img1"></label>
+          <label for="img2"></label>
+          <label for="img3"></label>
+          <label for="img4"></label>
+          <label for="img5"></label>
+          <label for="img6"></label>
+        </div>
+      </div>
+    </section>
+
+    <form id="review" class="form" action="/review6" method="POST" )>
+      <h1>Leave a review</h1>
+      <div class="username">
+        <h2>Username</h2>
+        <input
+          type="text"
+          placeholder="Enter the name you want to display (under 15 characters)"
+          name="username"
+          size="100"
+          maxlength="15"
+          autocomplete="off"
+        />
+      </div>
+      <div class="review">
+        <h2>Your review</h2>
+        <textarea
+          type="text"
+          placeholder="Leave your own impression of the game!"
+          name="review"
+          rows="10"
+          cols="200"
+        ></textarea>
+        <button class="border-gradient border-gradient-purple" type="submit">
+          Submit
+        </button>
+      </div>
+    </form>
+
+    <section id="posts">
+      <h1>Reviews</h1>
+      <ul class="review2">
+        <% for(var i = reviews.length - 1; i >= 0; i--) {%>
+        <li class="review2">
+          <div class="comment-name-box">
+            <span class="comment-name"><%= reviews[i].username %></span>
+          </div>
+          <pre class="comment-content"><%= reviews[i].review %></pre>
+        </li>
+        <% } %>
+      </ul>
+    </section>
+  </body>
+</html>

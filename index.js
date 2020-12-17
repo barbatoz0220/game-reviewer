@@ -63,16 +63,64 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
 
         // Game Review 3
         app.get('/review3', function (req, res) {
-            db.collection('reviews').find().toArray()
+            db.collection('review3').find().toArray()
                 .then(results => {
                     res.render('review3.ejs', { reviews: results })
                 })
                 .catch(error => console.error(error))
         })
         app.post('/review3', function (req, res) {
-            db.collection('reviews').insertOne(req.body)
+            db.collection('review3').insertOne(req.body)
                 .then(result => {
                     res.redirect('/review3')
+                })
+                .catch(error => console.error(error))
+        })
+
+        // Game Review 4
+        app.get('/review4', function (req, res) {
+            db.collection('review4').find().toArray()
+                .then(results => {
+                    res.render('review4.ejs', { reviews: results })
+                })
+                .catch(error => console.error(error))
+        })
+        app.post('/review4', function (req, res) {
+            db.collection('review4').insertOne(req.body)
+                .then(result => {
+                    res.redirect('/review4')
+                })
+                .catch(error => console.error(error))
+        })
+
+        // Game Review 5
+        app.get('/review5', function (req, res) {
+            db.collection('review5').find().toArray()
+                .then(results => {
+                    res.render('review5.ejs', { reviews: results })
+                })
+                .catch(error => console.error(error))
+        })
+        app.post('/review5', function (req, res) {
+            db.collection('review5').insertOne(req.body)
+                .then(result => {
+                    res.redirect('/review5')
+                })
+                .catch(error => console.error(error))
+        })
+
+        // Game Review 6
+        app.get('/review6', function (req, res) {
+            db.collection('review6').find().toArray()
+                .then(results => {
+                    res.render('review6.ejs', { reviews: results })
+                })
+                .catch(error => console.error(error))
+        })
+        app.post('/review6', function (req, res) {
+            db.collection('review6').insertOne(req.body)
+                .then(result => {
+                    res.redirect('/review6')
                 })
                 .catch(error => console.error(error))
         })
