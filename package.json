@@ -17,6 +17,7 @@
     "pug": "^3.0.0"
   },
   "devDependencies": {
+    "nodemailer": "^6.4.17",
     "nodemon": "^2.0.6"
   }
 }

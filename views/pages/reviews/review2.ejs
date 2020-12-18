@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Pokemon Sword and Shield Review</title>
-    <link rel="stylesheet" href="review.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/review.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -249,19 +250,24 @@
         <h2>Username</h2>
         <input
           type="text"
-          placeholder="Enter the name you want to display (under 15 characters)"
+          placeholder="Enter the name you want to display (more than 8 and less than 50 characters)"
           name="username"
           size="100"
-          maxlength="15"
+          minlength="8"
+          maxlength="50"
           autocomplete="off"
+          required
         />
       </div>
       <div class="review">
         <h2>Your review</h2>
         <textarea
           type="text"
-          placeholder="Leave your own impression of the game!"
+          placeholder="Leave your own impression of the game! (more than 50 and less than 1000 characters)"
           name="review"
+          minlength="50"
+          maxlength="1000"
+          required
           rows="10"
           cols="200"
         ></textarea>

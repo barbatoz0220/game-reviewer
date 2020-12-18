@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>Genshin Impact Review</title>
-    <link rel="stylesheet" href="review.css" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/review.css" />
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -196,7 +197,7 @@
           <input type="radio" name="slide" id="img4" />
           <input type="radio" name="slide" id="img5" />
           <input type="radio" name="slide" id="img6" />
-  
+
           <img src="images/cgg/genshin/0.jpg" class="m1" alt="img1" checked />
           <img src="images/cgg/genshin/1.png" class="m2" alt="img2" />
           <img src="images/cgg/genshin/2.jpg" class="m3" alt="img3" />
@@ -220,17 +221,25 @@
       <div class="username">
         <h2>Username</h2>
         <input
-          type="text" placeholder="Enter the name you want to display (under 15 characters)"
-          name="username" size="100"
-          maxlength="15" autocomplete="off"
+          type="text"
+          placeholder="Enter the name you want to display (more than 8 and less than 50 characters)"
+          name="username"
+          size="100"
+          minlength="8"
+          maxlength="50"
+          autocomplete="off"
+          required
         />
       </div>
       <div class="review">
         <h2>Your review</h2>
         <textarea
           type="text"
-          placeholder="Leave your own impression of the game!"
+          placeholder="Leave your own impression of the game! (more than 50 and less than 1000 characters)"
           name="review"
+          minlength="50"
+          maxlength="1000"
+          required
           rows="10"
           cols="200"
         ></textarea>
@@ -246,7 +255,7 @@
         <% for(var i = reviews.length - 1; i >= 0; i--) {%>
         <li class="review1">
           <div class="comment-name-box">
-            <span class="comment-name"><%= reviews[i].username %></span> 
+            <span class="comment-name"><%= reviews[i].username %></span>
           </div>
           <pre class="comment-content"><%= reviews[i].review %></pre>
         </li>

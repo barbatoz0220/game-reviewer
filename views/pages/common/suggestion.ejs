@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Review Page</title>
+  </head>
+  <body>
+    <h1>This is the review section for the game</h1>
+    <form class="form" action="/mail" method="POST" )>
+      <input
+        id="username"
+        type="text"
+        placeholder="Enter the name you want to display (under 15 characters)"
+        name="username"
+        size="100"
+        maxlength="15"
+        autocomplete="off"
+      />
+
+      <textarea
+        type="text"
+        id="request"
+        placeholder="Leave your own impression of the game!"
+        name="request"
+        rows="10"
+        cols="100"
+      ></textarea>
+
+      <button class="border-gradient border-gradient-purple" type="submit">
+        Submit
+      </button>
+    </form>
+  </body>
+</html>
