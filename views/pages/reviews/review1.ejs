@@ -5,6 +5,7 @@
     <title>Genshin Impact Review</title>
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/review.css" />
+    <script src="../../scripts/review.js"></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -30,8 +31,7 @@
       </header>
     </section>
 
-    <section
-      class="banner"
+    <section class="banner"
       style="
         background-image: url(images/banners/genshin_wallpaper.png);
         background-position: center;
@@ -243,7 +243,7 @@
           rows="10"
           cols="200"
         ></textarea>
-        <button class="border-gradient border-gradient-purple" type="submit">
+        <button class="review border-gradient border-gradient-purple" type="submit">
           Submit
         </button>
       </div>
@@ -258,6 +258,15 @@
             <span class="comment-name"><%= reviews[i].username %></span>
           </div>
           <pre class="comment-content"><%= reviews[i].review %></pre>
+          <div class="comment-statistics">
+            <button value="upvote" class="likes" id="upvote-button" onclick="upvote('<%= reviews[i]._id %>')">
+              <i class="fas fa-angle-double-up"></i> Upvote <%= reviews[i].likes %>
+            </button>
+            <button value="downvote" class="dislikes" id="downvote-button" onclick="downvote('<%= reviews[i]._id %>')">
+              <i class="fas fa-angle-double-down"></i> Downvote <%= reviews[i].dislikes
+              %>
+            </button>
+          </div>
         </li>
         <% } %>
       </ul>

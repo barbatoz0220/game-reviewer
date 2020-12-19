@@ -3,7 +3,8 @@ const bodyParser = require('body-parser');
 const nodemailer = require('nodemailer');
 const app = express();
 const port = 3000;
-const MongoClient = require('mongodb').MongoClient;
+const { MongoClient } = require('mongodb');
+var ObjectID = require('mongodb').ObjectID;
 
 // Server
 app.listen(port, function () {
@@ -15,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Nodemailer
-app.use("/mail", function(req, res) {
+app.use("/mail", function (req, res) {
     var transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
@@ -29,7 +30,7 @@ app.use("/mail", function(req, res) {
         from: 'GameReviewer',
         to: 'gamereviewer.atk@gmail.com',
         subject: 'Game Request',
-        text: 'Sent by user: '+ req.body.username + '\nContent: ' + req.body.request,
+        text: 'Sent by user: ' + req.body.username + '\nContent: ' + req.body.request,
     }
     transporter.sendMail(mainOptions, function (err, info) {
         if (err) {
@@ -54,14 +55,18 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
         app.set('view engine', 'ejs')
 
         // Body parser
-        app.use(bodyParser.urlencoded({ extended: true }))
+        app.use(bodyParser.urlencoded({ extended: true }));
+        app.use(bodyParser.json());
         app.use(express.static(__dirname + '/views'));
-        
-        
+
+
         // Handlers
         // Review Page 1
         app.get('/', function (req, res) {
-            res.render('pages/common/frontpage.ejs')  
+            res.render('pages/common/frontpage.ejs')
+        })
+        app.get('/suggestion', function (req, res) {
+            res.render('pages/common/suggestion.ejs')
         })
 
         // Game Review 1
@@ -73,12 +78,44 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                 .catch(error => console.error(error))
         })
         app.post('/review1', function (req, res) {
-            db.collection('review1').insertOne(req.body)
+            var review = {
+                username: req.body.username,
+                review: req.body.review,
+                likes: parseInt(0),
+                dislikes: parseInt(0),
+                voted: false
+            }
+            db.collection('review1').insertOne(review)
                 .then(result => {
                     res.redirect('/review1')
                 })
                 .catch(error => console.error(error))
         })
+        // Like a review
+        app.get('/like1/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review1').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
+                new: true,
+                upsert: true
+            })
+            console.log(review.value);
+            res.json(review.value);
+        })
+        // Dislike a review
+        app.get('/dislike1/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            console.log(requestID);
+            const review = await db.collection('review1').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
+                new: true,
+                upsert: true
+            })
+            
+            console.log(review.value);
+            res.json(review);
+        })
+        /* res.json(review)
+        */
+        
 
         // Game Review 2
         app.get('/review2', function (req, res) {

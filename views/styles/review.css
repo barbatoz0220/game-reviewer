@@ -116,12 +116,13 @@ div.review {
 }
 
 /* Submit Button */
-button {
+button.review {
   color: white;
   background: rgb(255, 103, 103);
   text-decoration: inherit;
   font-family: monospace;
   margin: 25px;
+  cursor: pointer;
   padding: 1rem 2rem;
   border-radius: 5px;
 }
@@ -210,20 +211,46 @@ button {
 /* Reviews */
 section#posts {
   text-align: justify;
-  
+  display: grid;
+  flex-direction: column;
+}
+ul {
+  display: flex;
+  flex-direction: column;
 }
 li {
   list-style: none;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: [first] 5% [second] 90% [third] 5%;
+  background: rgba(22, 0, 25, 0.288);
+  box-shadow: 5px 5px #4837e3;
   padding: 25px;
-  margin: 10px;
+  width: 80%;
+  margin: 1% auto;
   border: 3px solid rgba(37, 33, 255, 0.274);
 }
 .comment-name {
-  background-image: linear-gradient(to right, rgba(255, 103, 103, 0.452), #4837e35e);
+  background-image: linear-gradient(to right, rgba(255, 103, 103, 0.932), #4837e3);
+  padding: 2px;
   box-shadow: 5px 5px #4837e3;
 }
 pre {
+  margin-top: 2%;
+  margin-bottom: 3%;
   white-space: pre-wrap;
+}
+button.likes, button.dislikes {
+  color: white;
+  background: rgb(255, 103, 103);
+  text-decoration: inherit;
+  font-family: monospace;
+  cursor: pointer;
+  transition: 0.5s ease;
+  border-radius: 5px;
+}
+button.likes:hover, button.dislikes:hover {
+  background-color: #ff0099;
+}
+button.likes:focus, button.dislikes:focus {
+  background-color: #4837e3;
 }

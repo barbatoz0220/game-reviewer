@@ -2,10 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/suggestion.css" />
     <title>Review Page</title>
   </head>
   <body>
-    <h1>This is the review section for the game</h1>
+    <section class="navigation">
+      <header>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="/" method="GET">GameReviewer<i class="fas fa-gamepad"></i></a>
+          </div>
+          <nav>
+            <a href="/about" method="GET">About</a>
+          </nav>
+        </div>
+      </header>
+    </section>
+    <h1>Give us a suggestion</h1>
     <form class="form" action="/mail" method="POST" )>
       <input
         id="username"

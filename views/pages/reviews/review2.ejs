@@ -279,13 +279,21 @@
 
     <section id="posts">
       <h1>Reviews</h1>
-      <ul class="review2">
+      <ul class="review1">
         <% for(var i = reviews.length - 1; i >= 0; i--) {%>
-        <li class="review2">
+        <li class="review1">
           <div class="comment-name-box">
             <span class="comment-name"><%= reviews[i].username %></span>
           </div>
           <pre class="comment-content"><%= reviews[i].review %></pre>
+          <div class="comment-statistics">
+            <button value="upvote" class="likes" id="upvote-button" onclick="upvote('<%= reviews[i]._id %>')">
+              <i class="fas fa-angle-double-up"></i> Upvote <%= reviews[i].likes %>
+            </button>
+            <button value="downvote" class="dislikes" id="downvote-button" onclick="downvote('<%= reviews[i]._id %>')">
+              <i class="fas fa-angle-double-down"></i> Downvote <%= reviews[i].dislikes %>
+            </button>
+          </div>
         </li>
         <% } %>
       </ul>
