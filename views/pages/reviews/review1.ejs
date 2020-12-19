@@ -260,10 +260,10 @@
           <pre class="comment-content"><%= reviews[i].review %></pre>
           <div class="comment-statistics">
             <button value="upvote" class="likes" id="upvote_<%=reviews[i]._id%>" onclick="upvote1('<%= reviews[i]._id %>')">
-              <i class="fas fa-angle-double-up"></i> Upvotes <%= reviews[i].likes - 1 %>
+              <i class="fas fa-angle-double-up"></i> Upvotes <%= reviews[i].likes %>
             </button>
             <button value="upvote" class="dislikes" id="downvote_<%=reviews[i]._id%>" onclick="downvote1('<%= reviews[i]._id %>')">
-              <i class="fas fa-angle-double-down"></i> Downvotes <%= reviews[i].dislikes + 1 %>
+              <i class="fas fa-angle-double-down"></i> Downvotes <%= reviews[i].dislikes %>
             </button>
           </div>
         </li>
