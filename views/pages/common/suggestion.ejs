@@ -4,39 +4,42 @@
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/suggestion.css" />
+    <script src="../../scripts/email-validation.js"></script>
     <title>Review Page</title>
   </head>
   <body>
     <section class="navigation">
       <header>
-        <div class="wrapper">
-          <div class="logo">
-            <a href="/" method="GET">GameReviewer<i class="fas fa-gamepad"></i></a>
-          </div>
-          <nav>
-            <a href="/about" method="GET">About</a>
-          </nav>
-        </div>
+        <a href="/" method="GET">GameReviewer<i class="fas fa-gamepad"></i></a>
       </header>
     </section>
-    <h1>Give us a suggestion</h1>
-    <form class="form" action="/mail" method="POST" )>
+
+    <form
+      class="suggestion"
+      action="/mail"
+      method="POST"
+      onsubmit="ValidateEmail(this)"
+      )
+    >
+      <h1>Give us a suggestion</h1>
       <input
         id="username"
         type="text"
-        placeholder="Enter the name you want to display (under 15 characters)"
+        placeholder="Please enter your username (more than 8 and less than 50 characters)"
         name="username"
         size="100"
-        maxlength="15"
+        minlength="8"
+        maxlength="50"
         autocomplete="off"
+        required
       />
 
       <textarea
         type="text"
-        id="request"
-        placeholder="Leave your own impression of the game!"
-        name="request"
-        rows="10"
+        id="suggestion"
+        placeholder="Please tell us what we could help you with for the better!"
+        name="suggestion"
+        rows="25"
         cols="100"
       ></textarea>
 

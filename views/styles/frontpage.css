@@ -34,7 +34,8 @@ h1.logo {
   border-radius: 1rem;
   background-image: linear-gradient(
     to right,
-    rgba(255, 103, 103, 0.76),
+    #4837e39d,
+    rgba(255, 103, 103, 0.473),
     #4837e31c
   );
 }
@@ -80,7 +81,8 @@ h1.logo {
   text-decoration: none;
   background-image: linear-gradient(
     to right,
-    rgba(255, 103, 103, 0.76),
+    #4837e39d,
+    rgba(255, 103, 103, 0.473),
     #4837e31c
   );
 }
@@ -107,6 +109,42 @@ footer {
 }
 footer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  width: 50%;
+  margin: 1% auto;
   justify-content: space-around;
+}
+/* Submit Button */
+button {
+  color: rgb(22, 0, 25);
+  border: solid 3px rgb(22, 0, 25);
+  border-radius: 1rem;
+  opacity: 80%;
+  background-image: linear-gradient(
+    to right,
+    #4837e39d,
+    rgba(255, 103, 103, 0.473),
+    #4837e31c
+  );
+  outline: none;
+  cursor: pointer;
+  font-family: monospace;
+  margin: 2% auto;
+  width: 50%;
+  height: 3rem;
+}
+button > a.suggestion {
+  color: rgb(22, 0, 25);
+  opacity: 100%;
+  font-weight: bold;
+  display: block;
+  text-decoration: none;
+  transition: 1s ease;
+}
+
+a.suggestion:hover {
+  border-radius: 1rem;
+  padding: 1%;
+  color: white;
+  background-color: #4837e37e;
 }

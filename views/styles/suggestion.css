@@ -1,0 +1,90 @@
+/* Navigation Bar */
+header {
+  text-align: center;
+}
+a {
+  color: white;
+  transition: 0.5s;
+  text-decoration: none;
+  text-align: center;
+  margin: 25px auto;
+}
+a:hover {
+  color: rgb(255, 103, 103);
+  border-radius: 5px;
+  padding: 5px;
+  background: black;
+}
+header {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 25px;
+  background-image: linear-gradient(to right, rgb(255, 103, 103), #4837e3);
+  width: 100%;
+  z-index: 12;
+  position: fixed;
+  font-size: 1.5em;
+}
+
+/* Suggestion Form */
+body {
+  display: grid;
+  grid-template-columns: [first] 55% [second] 45%;
+}
+form.suggestion {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: grid;
+}
+input {
+  text-align: center;
+  height: 2rem;
+}
+input[name="username"] {
+  width: 90%;
+}
+textarea {
+  width: 90%;
+  margin-top: 2%;
+}
+textarea,
+input {
+  font-family: monospace;
+  resize: none;
+  outline: none;
+  color: white;
+  background: rgba(22, 0, 25, 0.288);
+  border-radius: 5px;
+  caret-color: rgb(255, 103, 103);
+  box-shadow: 5px 5px #4837e3;
+}
+::placeholder {
+  color: white;
+  border-radius: 5px;
+  font-family: monospace;
+  text-align: center;
+}
+
+/* Submit Button */
+button {
+  color: white;
+  background: rgb(255, 103, 103);
+  text-decoration: inherit;
+  font-family: monospace;
+  margin-top: 2%;
+  width: 90%;
+  cursor: pointer;
+  border-radius: 5px;
+  height: 3rem;
+}
+.border-gradient-purple {
+  box-shadow: 2px 2px #4837e3;
+  transition: 1.5s;
+}
+.border-gradient-purple:hover {
+  color: rgb(255, 103, 103);
+  background: #4837e3;
+  box-shadow: 5px 5px rgb(255, 103, 103);
+  cursor: pointer;
+}

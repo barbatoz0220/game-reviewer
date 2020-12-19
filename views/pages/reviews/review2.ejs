@@ -5,6 +5,7 @@
     <title>Pokemon Sword and Shield Review</title>
     <link rel="stylesheet" href="styles/base.css" />
     <link rel="stylesheet" href="styles/review.css" />
+    <script src="../../scripts/review.js"></script>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
@@ -271,7 +272,7 @@
           rows="10"
           cols="200"
         ></textarea>
-        <button class="border-gradient border-gradient-purple" type="submit">
+        <button class="review border-gradient border-gradient-purple" type="submit">
           Submit
         </button>
       </div>
@@ -279,19 +280,19 @@
 
     <section id="posts">
       <h1>Reviews</h1>
-      <ul class="review1">
+      <ul class="review2">
         <% for(var i = reviews.length - 1; i >= 0; i--) {%>
-        <li class="review1">
+        <li class="review2">
           <div class="comment-name-box">
             <span class="comment-name"><%= reviews[i].username %></span>
           </div>
           <pre class="comment-content"><%= reviews[i].review %></pre>
           <div class="comment-statistics">
-            <button value="upvote" class="likes" id="upvote-button" onclick="upvote('<%= reviews[i]._id %>')">
-              <i class="fas fa-angle-double-up"></i> Upvote <%= reviews[i].likes %>
+            <button value="upvote" class="likes" id="upvote_<%=reviews[i]._id%>" onclick="upvote2('<%= reviews[i]._id %>')">
+              <i class="fas fa-angle-double-up"></i> Upvotes <%= reviews[i].likes - 1 %>
             </button>
-            <button value="downvote" class="dislikes" id="downvote-button" onclick="downvote('<%= reviews[i]._id %>')">
-              <i class="fas fa-angle-double-down"></i> Downvote <%= reviews[i].dislikes %>
+            <button value="upvote" class="dislikes" id="downvote_<%=reviews[i]._id%>" onclick="downvote2('<%= reviews[i]._id %>')">
+              <i class="fas fa-angle-double-down"></i> Downvotes <%= reviews[i].dislikes + 1 %>
             </button>
           </div>
         </li>

@@ -29,7 +29,7 @@ app.use("/mail", function (req, res) {
     var mainOptions = {
         from: 'GameReviewer',
         to: 'gamereviewer.atk@gmail.com',
-        subject: 'Game Request',
+        subject: 'GR-Suggestion',
         text: 'Sent by user: ' + req.body.username + '\nContent: ' + req.body.request,
     }
     transporter.sendMail(mainOptions, function (err, info) {
@@ -91,32 +91,23 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                 })
                 .catch(error => console.error(error))
         })
-        // Like a review
         app.get('/like1/:id', async function(req, res) {
             var requestID = ObjectID(req.params.id);
             const review = await db.collection('review1').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
                 new: true,
                 upsert: true
             })
-            console.log(review.value);
             res.json(review.value);
         })
-        // Dislike a review
         app.get('/dislike1/:id', async function(req, res) {
             var requestID = ObjectID(req.params.id);
-            console.log(requestID);
             const review = await db.collection('review1').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
                 new: true,
                 upsert: true
             })
-            
-            console.log(review.value);
-            res.json(review);
+            res.json(review.value);
         })
-        /* res.json(review)
-        */
         
-
         // Game Review 2
         app.get('/review2', function (req, res) {
             db.collection('review2').find().toArray()
@@ -131,6 +122,22 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                     res.redirect('/review2')
                 })
                 .catch(error => console.error(error))
+        })
+        app.get('/like2/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review2').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
+        app.get('/dislike2/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review2').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
         })
 
         // Game Review 3
@@ -148,6 +155,22 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                 })
                 .catch(error => console.error(error))
         })
+        app.get('/like3/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review3').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
+        app.get('/dislike3/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review3').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
 
         // Game Review 4
         app.get('/review4', function (req, res) {
@@ -163,6 +186,22 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                     res.redirect('pages/review4')
                 })
                 .catch(error => console.error(error))
+        })
+        app.get('/like4/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review4').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
+        app.get('/dislike4/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review4').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
         })
 
         // Game Review 5
@@ -180,6 +219,22 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                 })
                 .catch(error => console.error(error))
         })
+        app.get('/like5/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review5').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
+        app.get('/dislike5/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review5').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
 
         // Game Review 6
         app.get('/review6', function (req, res) {
@@ -195,6 +250,22 @@ MongoClient.connect('mongodb+srv://spm_bois:atk123@cluster0.7guuj.mongodb.net/Ga
                     res.redirect('/review6')
                 })
                 .catch(error => console.error(error))
+        })
+        app.get('/like6/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review6').findOneAndUpdate({"_id": requestID}, {$inc: {"likes":+1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
+        })
+        app.get('/dislike6/:id', async function(req, res) {
+            var requestID = ObjectID(req.params.id);
+            const review = await db.collection('review6').findOneAndUpdate({"_id": requestID}, {$inc: {"dislikes":-1}}, {
+                new: true,
+                upsert: true
+            })
+            res.json(review.value);
         })
     })
     .catch(error => console.error(error))
