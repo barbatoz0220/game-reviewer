@@ -1,3 +1,9 @@
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
 /* Navigation Bar */
 header {
   text-align: center;
@@ -32,10 +38,24 @@ body {
   display: grid;
   grid-template-columns: [first] 55% [second] 45%;
 }
+div.animation {
+  left: 0;
+  grid-column-start: 0;
+  grid-column-end: 2;
+}
 form.suggestion {
+  margin: 5%;
   grid-column-start: 2;
   grid-column-end: 3;
   display: grid;
+}
+h1 {
+  color: rgb(255, 103, 103);
+  font-size: 25px;
+  border-radius: 5px;
+  padding: 5px;
+  transition: 0.5s ease;
+  margin-top: 10%;
 }
 input {
   text-align: center;
@@ -87,4 +107,84 @@ button {
   background: #4837e3;
   box-shadow: 5px 5px rgb(255, 103, 103);
   cursor: pointer;
+}
+
+/* Animation */
+#background {
+  position: relative;
+  z-index: -1;
+  animation: bg-animation 3s ease infinite;
+  animation-direction: alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+#l3 {
+  animation: left3 0.6s ease infinite;
+  transform-origin: center 60px;
+  transform-box: fill-box;
+}
+#r3 {
+  animation: right3 0.7s ease infinite;
+  animation-direction: alternate;
+  transform-origin: center 60px;
+  transform-box: fill-box;
+}
+#l12 {
+  animation: l12 0.2s ease infinite;
+  animation-direction: alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+#r12 {
+  animation: r12 0.2s ease infinite;
+  animation-direction: alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+#console {
+  animation: r12 0.5s ease infinite;
+  animation-direction: alternate;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+@keyframes bg-animation {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(3);
+  }
+}
+
+@keyframes left3 {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+@keyframes right3 {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    transform: translateY(20px);
+  }
+}
+@keyframes l12 {
+  from {
+    transform: translateY(-5px);
+  }
+  to {
+    transform: translateY(5px);
+  }
+}
+@keyframes r12 {
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    transform: translateY(-5px);
+  }
 }
